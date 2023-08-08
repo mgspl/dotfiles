@@ -1,0 +1,124 @@
+{
+    "position": "top",
+    "layer": "top",
+    "weight": 30,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/media"],
+    "modules-right": ["battery", "pulseaudio", "tray","custom/notification","clock"],
+    // Modules configuration
+	"hyprland/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"on-click": "activate",
+		"format": "{icon}",
+	 	"persistent_workspaces": {
+	 		"1": [],
+	 		"2": [],
+	 		"3": [],
+	 		"4": [],
+	 		"5": [],
+	 		"6": [],
+	 		"7": [],
+	 		"8": [],
+	 		"9": [],
+	 		"10": []
+	},
+        "format-icons": {
+            "default": " ",
+            "urgent": " ",
+            "focused": " ",
+         }
+     },
+"custom/media": {
+    "format": "<span foreground='#b4befe'>   </span>{}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+},  
+	// "clock": {
+	// 	"format": "<span foreground='#CBA6F7'>   </span>{:%a %d %H:%M}",
+ //        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	// },
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "<span foreground='#b4befe'> </span>{:%a %d %H:%M}",
+        "tooltip-format": "<span color='#b4befe'><big>{:%Y %B}</big></span>\n<span color='#b4befe'><tt><small>{calendar}</small></tt></span>",
+        "format-alt": "{:%a %d %b w:%V %H:%M}",
+        "today-format": "<span color='#b4befe'><b><u>{}</u></b></span>",
+        "calendar-weeks-pos": "left",
+        "format-calendar": "<span background='#332E41' bgalpha='60%'><b>{}</b></span>",
+        "format-calendar-weeks": "<span color='#b4befe'><b>{}</b></span>",
+        "format-calendar-weekdays": "<span color='#b4befe'><b>{}</b></span>",
+        "interval": 10
+    },
+
+	"battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15,
+        	},
+		    "format": "<span size='13000' foreground='#b4befe'>{icon}</span> {capacity}%",
+		    "format-warning": "<span size='13000' foreground='#b4befe'>{icon}</span> {capacity}%",
+		    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon}</span> {capacity}%",
+		    "format-charging": "<span size='13000' foreground='#b4befe'>  </span>{capacity}%",
+		    "format-plugged": "<span size='13000' foreground='#b4befe'>  </span>{capacity}%",
+		    "format-alt": "<span size='13000' foreground='#b4befe'> {icon} </span> {time}",
+		    "format-full": "<span size='13000' foreground='#b4befe'>  </span>{capacity}%",
+        	"format-icons": ["  ", "  ", "  ", "  ", "  "],
+            "tooltip-format": "{time}"
+	},
+	"network": {
+        "format-wifi": "<span size='13000' foreground='#b4befe'>   </span>{essid}",
+        "format-ethernet": "<span size='13000' foreground='#b4befe'> 󰤭  </span> Disconnected",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "<span size='13000' foreground='#b4befe'>  </span>Disconnected",
+		"tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+	},
+  "custom/notification": {
+    "tooltip-format": "{time}",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#b4befe'> </span><span foreground='#E38C8F'><sup></sup></span>",
+      "none": "<span foreground='#b4befe'>   </span>",
+      "dnd-notification": "<span foreground='#b4befe'> </span><span foreground='#E38C8F'><sup></sup></span>",
+      "dnd-none": "<span foreground='#b4befe'>   </span>",
+      "inhibited-notification": "<span foreground='#b4befe'> </span><span foreground='#E38C8F'><sup></sup></span>",
+      "inhibited-none": "<span foreground='#b4befe'>   </span>",
+      "dnd-inhibited-notification": "<span foreground='#b4befe'> </span><span foreground='#E38C8F'><sup></sup></span>",
+      "dnd-inhibited-none": "<span foreground='#b4befe'> </span>"
+    },
+    "return-type": "json", 
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  
+  "tray": {
+      "icons-size": 21,
+      "spacing": 4
+  },
+
+	"pulseaudio": {
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+		"format": "<span size='13000' foreground='#b4befe'> {icon} </span> {volume}%",
+        "format-muted": "<span size='14000' foreground='#b4befe'></span> Muted",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": "",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " "]
+        },
+    },
+}
