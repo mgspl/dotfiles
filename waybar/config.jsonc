@@ -2,7 +2,7 @@
     "position": "top",
     "layer": "top",
     "weight": 30,
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["sway/workspaces"],
     "modules-center": ["custom/media"],
     "modules-right": ["battery", "pulseaudio", "tray","custom/notification","clock"],
     // Modules configuration
