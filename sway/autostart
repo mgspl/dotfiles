@@ -1,0 +1,6 @@
+exec pipewire & pipewire-pulse
+exec wlsunset -l -22.0703 -L -48.4334 -t 4500 -T 6500 -g 1.0
+exec swaync 
+exec nm-applet --indicator
+exec_always waybar
+exec swayidle timeout 1200 nwg-lock timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' 
