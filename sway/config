@@ -10,23 +10,31 @@ include touchpad
 
 # nwg-shell sway config
 # Read `man 5 sway` for reference.
-
+# flameshot 
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 # border & title
 for_window [title="^.*"] border pixel 1, title_format "<b> %class >> %title </b>"
-default_border pixel 1
+default_border pixel 2
+client.focused '#b4befe' '#b4befe' '#cdd6f4'  '#b4befe'
 
 # gaps
 gaps inner 4
 gaps outer 0
 smart_gaps on
+# blur
+blur unable
+blur_xray disable
+blur_passes 2
+blur_radius 2
+layer_effects "waybar" blur enable; shadows enable; corner_radius 6
 
-# rounded border
-# corner_radius 8
-# smart_corner_radius on
+# rounded corners
+corner_radius 8
+smart_corner_radius on
 
-#shadows
-# shadows on 
-# shadow_blur_radius 8
+# shadows
+shadows on
+shadow_blur_radius 8
 
 # font
 font pango:monospace 11
@@ -44,11 +52,11 @@ set $right semicolon
 
 ###############     Autostart      ##################
 
-#exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-#exec hash dbus-update-activation-environment 2>/dev/null && \
- #   dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec ~/.azotebg
+exec swaybg -i .config/sway/wallpaper.jpg 
 
 ### Turn off screen on lid closed
 set $laptop eDP-1

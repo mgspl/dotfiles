@@ -2,5 +2,5 @@ set $term kitty
 set $browser MOZ_ENABLE_WAYLAND=1 firefox
 set $filemanager nautilus 
 set $editor nvim
-set $launcher  tofi-run | xargs swaymsg exec --
+set $launcher  tofi-drun | xargs swaymsg exec --
 set $exit wlogout 
