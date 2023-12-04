@@ -1,0 +1,31 @@
+[background]
+# Path to the background image
+#path = "/usr/share/backgrounds/greetd.jpg"
+path = "/usr/share/backgrounds/wallpaper.jpg"
+fit = "Contain"
+
+# The entries defined in this section will be passed to the session as environment variables when it is started
+[env]
+
+[GTK]
+# Whether to use the dark theme
+application_prefer_dark_theme = true
+
+# Cursor theme name
+cursor_theme_name = "Adwaita"
+
+# Font name and size
+font_name = "Cantarell Regular 11"
+
+# Icon theme name
+icon_theme_name = "Adwaita"
+
+# GTK theme name
+theme_name = "Catppuccin-Mocha-Standard-Lavender-Dark"
+
+[commands]
+# The command used to reboot the system
+reboot = [ "systemctl", "reboot" ]
+
+# The command used to shut down the system
+poweroff = [ "systemctl", "poweroff" ]
