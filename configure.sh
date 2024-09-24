@@ -44,7 +44,7 @@ git clone https://github.com/vinceliuice/Colloid-icon-theme /tmp/icon
 sh /tmp/icon/install.sh -s catppuccin -notint
 
 # Cursor Theme
-paru -S bibata-cursor-theme-bin
+paru -S --needed bibata-cursor-theme-bin
 
 echo 'Installing dotfiles'
 # Dotfiles
@@ -54,7 +54,7 @@ rm -rf ~/.config/kitty
 mv /tmp/dotfiles/hypr ~/.config
 mv /tmp/dotfiles/ags  ~/.config
 mv /tmp/dotfiles/kitty ~/.config
-mv /tmp/starship.toml ~/.config
+mv /tmp/dotfiles/starship.toml ~/.config
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
 echo 'All done!!'
