@@ -48,7 +48,7 @@ paru -S --needed bibata-cursor-theme-bin
 
 echo 'Installing dotfiles'
 # Dotfiles
-git clone --depht=1 https://github.com/mgspl/dotfiles /tmp/dotfiles
+git clone https://github.com/mgspl/dotfiles /tmp/dotfiles
 rm -rf ~/.config/hypr
 rm -rf ~/.config/kitty
 mv /tmp/dotfiles/hypr ~/.config
