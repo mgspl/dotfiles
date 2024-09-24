@@ -41,7 +41,7 @@ const options = mkOptions(OPTIONS, {
             border: opt("#080808"),
         },
 
-        blur: opt(0),
+        blur: opt(8),
         scheme: opt<"dark" | "light">("dark"),
         widget: { opacity: opt(94) },
         border: {
@@ -65,7 +65,8 @@ const options = mkOptions(OPTIONS, {
     bar: {
         flatButtons: opt(true),
         position: opt<"top" | "bottom">("top"),
-        corners: opt(true),
+        corners: opt(50),
+        transparent: opt(false),
         layout: {
             start: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "launcher",
@@ -81,6 +82,7 @@ const options = mkOptions(OPTIONS, {
                 "media",
                 "expander",
                 "systray",
+                "screenrecord",
                 "system",
                 "battery",
                 "powermenu",
@@ -110,7 +112,7 @@ const options = mkOptions(OPTIONS, {
             low: opt(30),
         },
         workspaces: {
-            workspaces: opt(8),
+            workspaces: opt(0),
         },
         taskbar: {
             iconSize: opt(0),
@@ -122,11 +124,12 @@ const options = mkOptions(OPTIONS, {
         },
         systray: {
             ignore: opt([
+                "KDE Connect Indicator",
                 "spotify-client",
             ]),
         },
         media: {
-            monochrome: opt(true),
+            monochrome: opt(false),
             preferred: opt("spotify"),
             direction: opt<"left" | "right">("right"),
             format: opt("{artists} - {title}"),
@@ -154,11 +157,10 @@ const options = mkOptions(OPTIONS, {
             favorites: opt([
                 [
                     "firefox",
+                    "kitty",
                     "org.gnome.Nautilus",
-                    "Ravendawn",
-                    "waydroid",
-                    "vesktop",
-                    "Code - OSS",
+                    "Vesktop",
+                    "Display Settings",
                 ],
             ]),
         },
@@ -167,14 +169,14 @@ const options = mkOptions(OPTIONS, {
     overview: {
         scale: opt(9),
         workspaces: opt(0),
-        monochromeIcon: opt(true),
+        monochromeIcon: opt(false),
     },
 
     powermenu: {
-        sleep: opt("loginctl suspend"),
-        reboot: opt("loginctl reboot"),
+        sleep: opt("systemctl suspend"),
+        reboot: opt("systemctl reboot"),
         logout: opt("pkill Hyprland"),
-        shutdown: opt("loginctl poweroff"),
+        shutdown: opt("shutdown now"),
         layout: opt<"line" | "box">("line"),
         labels: opt(true),
     },
@@ -186,7 +188,7 @@ const options = mkOptions(OPTIONS, {
         },
         width: opt(380),
         position: opt<"left" | "center" | "right">("right"),
-        networkSettings: opt("nm-connection-editor"),
+        networkSettings: opt("gtk-launch gnome-control-center"),
         media: {
             monochromeIcon: opt(true),
             coverSize: opt(100),
@@ -231,7 +233,7 @@ const options = mkOptions(OPTIONS, {
 
     hyprland: {
         gaps: opt(2.4),
-        inactiveBorder: opt("333333ff"),
+        inactiveBorder: opt("#282828"),
         gapsWhenOnly: opt(false),
     },
 })
