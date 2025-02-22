@@ -1,0 +1,127 @@
+  @import "catppuccin.css";
+
+  * {
+    font-family: UbuntuMono Nerd Font;
+    font-size: 14px;
+    min-height: 0;
+  }
+
+  #waybar {
+  background-color: @crust;
+  color: @text;
+  margin: 1px 1px;
+  }
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 1px;
+  background-color: @surface0;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: @text;
+  border-radius: 1rem;
+  padding: 0.2rem;
+}
+
+#workspaces button.active {
+  color: @blue;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @lavender;
+  border-radius: 1rem;
+}
+
+#window,
+#custom-notification,
+#power-profiles-daemon,
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  background-color: @surface0;
+  padding: 0.5rem 1rem;
+  margin: 1px 0;
+}
+
+#clock {
+  color: @text;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}
+
+#battery {
+  color: @blue;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#battery {
+  border-radius: 0;
+}
+
+#pulseaudio {
+  color: @text;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#custom-music {
+  color: @text;
+  border-radius: 1rem;
+}
+
+#custom-power {
+  margin-right: 1rem;
+  border-radius: 0px 1rem 1rem 0px;
+  color: @blue;
+}
+
+#tray {
+  margin-right: 1rem;
+  border-radius: 1rem;
+  }
+
+  #window {
+    font-family: "UbuntuMono Nerd Font";
+    color: @text;
+  }
+
+#custom-notification {
+  font-family: "UbuntuMono Nerd Font";
+  border-radius: 1rem 0px 0px 1rem;
+}
+
+#power-profiles-daemon.performance {
+  color: @yellow;
+}
+
+#power-profiles-daemon.balanced {
+  color: @blue;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @green;
+  }
+
+#window {
+    border-radius: 1rem;
+    margin-left: 1rem;
+  }
+
+  window#waybar.empty #window {
+    background-color: transparent;
+  }

@@ -1,0 +1,144 @@
+[
+  {
+    "battery": {
+      "adapter": "ADP1",
+      "bat": "BAT1",
+      "format": "{icon} {capacity}%",
+      "format-alt": "{icon}",
+      "format-charging": "󰂄",
+      "format-icons": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "format-plugged": " ",
+      "full-at": 85,
+      "states": {
+        "critical": 15,
+        "warning": 30
+      }
+    },
+    "clock": {
+      "actions": {
+        "on-click-right": "mode",
+        "on-scroll-down": "shift_down",
+        "on-scroll-up": "shift_up"
+      },
+      "calendar": {
+        "format": {
+          "days": "<span color='#cdd6f4'><b>{}</b></span>",
+          "months": "<span color='#f5e0dc'><b>{}</b></span>",
+          "today": "<span color='#f38ba8'><b><u>{}</u></b></span>",
+          "weekdays": "<span color='#fab387'><b>{}</b></span>",
+          "weeks": "<span color='#89dceb'><b>W{}</b></span>"
+        },
+        "mode": "month",
+        "on-scroll": 1
+      },
+      "format": "<span foreground='#89b4fa'>󰥔  </span>{:%H:%M}",
+      "format-alt": "<span foreground='#89b4fa'>󰥔  </span>{:%d/%m/%Y}",
+      "timezone": "America/Sao_Paulo",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><span>{calendar}</span></tt>"
+    },
+    "custom/music": {
+      "escape": true,
+      "exec": "playerctl metadata --format='{{ title }}'",
+      "format": "<span foreground='#89b4fa'>  </span>{}",
+      "interval": 5,
+      "max-length": 50,
+      "on-click": "playerctl play-pause",
+      "tooltip": false
+    },
+    "custom/notification": {
+      "escape": true,
+      "exec": "swaync-client -swb",
+      "exec-if": "which swaync-client",
+      "format": "{icon}",
+      "format-icons": {
+        "dnd-inhibited-none": "<span foreground='#89b4fa'>  </span>",
+        "dnd-inhibited-notification": "<span foreground='#89b4fa'> </span><sup> </sup>",
+        "dnd-none": "<span foreground='#89b4fa'>  </span>",
+        "dnd-notification": "<span foreground='#89b4fa'> </span><sup> </sup>",
+        "inhibited-none": "<span foreground='#89b4fa'> </span>",
+        "inhibited-notification": "<span foreground='#89b4fa'> </span><sup> </sup>",
+        "none": "<span foreground='#89b4fa'> </span>",
+        "notification": "<span foreground='#89b4fa'> </span><sup> </sup>"
+      },
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "return-type": "json",
+      "tooltip": false
+    },
+    "custom/power": {
+      "format": "󰐥 ",
+      "on-click": "syspower &",
+      "tooltip": false
+    },
+    "hyprland/window": {
+      "format": "{initialClass}",
+      "icon": true,
+      "icon-size": 18
+    },
+    "hyprland/workspaces": {
+      "all-outputs": true,
+      "format": " {icon} ",
+      "format-icons": {
+        "default": " "
+      }
+    },
+    "layer": "top",
+    "modules-center": [
+      "custom/music"
+    ],
+    "modules-left": [
+      "hyprland/workspaces",
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "pulseaudio",
+      "battery",
+      "power-profiles-daemon",
+      "clock",
+      "tray",
+      "custom/notification",
+      "custom/power"
+    ],
+    "position": "top",
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "format-icons": {
+        "balanced": " ",
+        "default": " ",
+        "performance": " ",
+        "power-saver": " "
+      },
+      "tooltip": true,
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}"
+    },
+    "pulseaudio": {
+      "format": "<span foreground='#89b4fa'>{icon}</span> {volume}%",
+      "format-bluetooth": "{icon} {volume}%",
+      "format-icons": {
+        "default": [
+          "",
+          " ",
+          " "
+        ]
+      },
+      "format-muted": " ",
+      "on-click": "pwvucontrol"
+    },
+    "tray": {
+      "icon-size": 18,
+      "spacing": 10
+    }
+  }
+]
+
