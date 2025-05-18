@@ -129,11 +129,11 @@
     "clock": {
       "format": "{:%H:%M}  ",
       "format-alt": "{:%A, %b %d}  ",
-      "tooltip-format": "{:%Y}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><span>{calendar}</span></tt>",
       "calendar": {
-        "mode": "year",
-        "mode-mon-col": 3,
-        "weeks-pos": "right",
+        "mode": "month",
+        //"mode-mon-col": 3,
+        //"weeks-pos": "right",
         "on-scroll": 1,
         "format": {
           "months": "<span color='#ffead3'><b>{}</b></span>",
@@ -141,7 +141,12 @@
           "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
           "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
           "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-        }
+        },
+        "actions": {
+            "on-click-right" : "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+          }
       }
     },
     "pulseaudio": {
@@ -165,8 +170,7 @@
     "custom/power": {
         "format": " ",
         "tooltip": false,
-        "on-click": "wlogout -b 6 --protocol layer-shell",
-        "on-click-right": "bash ~/.config/eww/System-Menu/launch"
+        "on-click": "wlogout --protocol layer-shell",
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
@@ -225,7 +229,7 @@
                    "warning": 20,
                    "critical": 10
         },
-        "format": "{icon}",
+        "format": "{icon} {capacity}%",
         "format-icons": [" ", " ", " ", " ", " "],
         "max-length": 25
     }
